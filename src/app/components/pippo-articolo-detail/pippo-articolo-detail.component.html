@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="card text-white bg-dark mb-3 col-md-4" *ngIf="pippoArticolo">
+      <div class="card-header">{{pippoArticolo.id}}</div>
+      <div class="card-body">
+        <h5 class="card-title">{{pippoArticolo.titolo | uppercase}}</h5>
+        <p class="card-text">{{pippoArticolo.corpo}}</p>
+        <p class="card-text">Autore: {{pippoArticolo.autore.nome}} {{pippoArticolo.autore.cognome}}</p>
+        <p class="card-text">Professione: {{pippoArticolo.autore.professione.nome}}</p>
+        <button class="btn btn-info" (click)="delete(pippoArticolo)" >Delete</button>
+        <button class="btn btn-info back" (click)="back()" >Back</button>
+      </div>
+    </div>
+
+
+
+
+
+    <form class="m-5">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationDefault01">Titolo:</label>
+          <input #titolo type="text" class="form-control" id="validationDefault01" placeholder="Titolo" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationDefault02">Corpo:</label>
+          <input #corpo type="text" class="form-control" id="validationDefault02" placeholder="Corpo" required>
+        </div> 
+      </div>
+        
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="validationDefaultUsername">Nome:</label>
+          <input #nome type="text" class="form-control" id="validationDefaultUsername" placeholder="Nome Autore" aria-describedby="inputGroupPrepend2" required>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationDefault03">Cognome:</label>
+          <input #cognome type="text" class="form-control" id="validationDefault03" placeholder="Cognome" required>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationDefault04">Professione:</label>
+          <input #nomeProfessione type="text" class="form-control" id="validationDefault04" placeholder="Professione" required>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="button" (click)="putPippoArticolo(pippoArticolo.id, titolo.value, corpo.value, pippoArticolo.autore.id, nome.value, cognome.value, pippoArticolo.autore.professione.id, nomeProfessione.value); titolo.value=''; titolo.corpo=''; titolo.nome='';titolo.cognome=''; titolo.nomeProfessione='';">Modifica</button>
+    </form>
+  </div>

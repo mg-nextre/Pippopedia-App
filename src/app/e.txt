@@ -1,0 +1,14 @@
+{
+    "id": 1,
+    "titolo": "Pippo regna sovrano",
+    "corpo": "I Pippidi stanno conquistando il mondo con il loro grido di battaglia",
+    "autore": {
+        "id": 1,
+        "nome": "Pippo",
+        "cognome": "Goofy",
+        "professione": {
+            "id": 1,
+            "nome": "Paninaro"
+        }
+    }
+},

@@ -1,0 +1,57 @@
+
+<form class="m-5">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault01">Titolo:</label>
+        <input #titolo type="text" class="form-control" id="validationDefault01" placeholder="Titolo" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault02">Corpo:</label>
+        <input #corpo type="text" class="form-control" id="validationDefault02" placeholder="Corpo" required>
+      </div> 
+      
+    </div>
+    <div class="form-row justify-content-center">
+      <div class=" mb-3 text-center">
+            <label for="validationUnique">Unique Id:</label>
+            <div class="row">
+                <input #uniqueId1 type="text" class="text-center" name="uniqueId1" minlength="8" maxlength="8" size="6">
+                -
+                <input #uniqueId2 type="text" class="text-center" name="uniqueId2" minlength="4" maxlength="4" size="2">
+                -
+                <input #uniqueId3 type="text" class="text-center" name="uniqueId3" minlength="4" maxlength="4" size="2">
+                -
+                <input #uniqueId4 type="text" class="text-center" name="uniqueId4" minlength="4" maxlength="4" size="2">
+                -
+                <input #uniqueId5 type="text" class="text-center" name="uniqueId5" minlength="12" maxlength="12" size="11">
+            </div>
+          </div></div>
+      
+    <div class="form-row">
+        
+      <div class="col-md-4 mb-3">
+        <label for="validationDefaultUsername">Nome:</label>
+        <input #nome type="text" class="form-control" id="validationDefaultUsername" placeholder="Nome Autore" aria-describedby="inputGroupPrepend2" required>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationDefault03">Cognome:</label>
+        <input #cognome type="text" class="form-control" id="validationDefault03" placeholder="Cognome" required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="validationDefault04">Professione:</label>
+        <input #nomeProfessione type="text" class="form-control" id="validationDefault04" placeholder="Professione" required>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="button" (click)="postPippoArticolo(null, titolo.value, corpo.value, null, uniqueId1.value+'-'+uniqueId2.value+'-'+uniqueId3.value+'-'+uniqueId4.value+'-'+uniqueId5.value, nome.value, cognome.value, null, nomeProfessione.value); titolo.value=''; titolo.corpo=''; titolo.nome='';titolo.cognome=''; titolo.nomeProfessione='';">Crea</button>
+  </form>
+
+<div class="row">
+  <div class="card text-white bg-dark mb-3 col-md-3" *ngFor="let pippoArticolo of pippoArticoli">
+    <div class="card-header">{{pippoArticolo.id}}</div>
+    <div class="card-body">
+      <h5 class="card-title"><a class="text-white text-decoration-none" routerLink="{{pippoArticolo.id}}">{{pippoArticolo.titolo | uppercase}}</a></h5>
+      <p class="card-text">{{pippoArticolo.corpo}}</p>
+      <button class="btn btn-info" (click)="deletePippoArticolo(pippoArticolo)" >Delete</button>
+    </div>
+  </div>
+</div>
